@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:test_app_4fresh/bonus_program.dart';
 import 'package:test_app_4fresh/gift_image.dart';
 import 'package:test_app_4fresh/my_app_bar.dart';
 import 'package:test_app_4fresh/my_text_style.dart';
@@ -84,6 +85,8 @@ class MyApp extends StatelessWidget {
                         fontSize: 14),),
                 ),
               ]),
+
+              BonusProgram(),
 
               ProductList(_buildList2())
             ],

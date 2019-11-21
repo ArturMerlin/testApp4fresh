@@ -10,7 +10,7 @@ class ProductList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        padding: EdgeInsets.only(right: 15.0),
+       // padding: EdgeInsets.only(right: 15.0),
         width: MediaQuery.of(context).size.width - 30.0,
         height: 160,
         child: ListView(scrollDirection: Axis.horizontal, children: <Widget>[

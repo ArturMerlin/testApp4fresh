@@ -42,6 +42,7 @@ flutter:
     - assets/images/ic_del.png
     - assets/images/ic_inc.png
     - assets/images/gift.png
+    - assets/images/bonus.png
 
   fonts:
     - family: SFProText

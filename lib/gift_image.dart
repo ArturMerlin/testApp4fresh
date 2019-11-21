@@ -7,7 +7,7 @@ class GiftImage extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Container(
-        padding: EdgeInsets.only(right: 15.0),
+       // padding: EdgeInsets.only(right: 15.0),
         height: 140,
         child:
         ListView(
