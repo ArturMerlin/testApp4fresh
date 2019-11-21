@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:test_app_4fresh/my_text_style.dart';
+
 
 class GiftImage extends StatelessWidget {
   @override

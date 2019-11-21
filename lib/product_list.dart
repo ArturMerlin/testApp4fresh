@@ -1,8 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:test_app_4fresh/my_text_style.dart';
+import 'package:test_app_4fresh/one_product.dart';
 
-class Product extends StatelessWidget {
+class ProductList extends StatelessWidget {
+
+  List<OneProduct> productlist;
+  ProductList(this.productlist);
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -10,12 +14,8 @@ class Product extends StatelessWidget {
         width: MediaQuery.of(context).size.width - 30.0,
         height: 160,
         child: ListView(scrollDirection: Axis.horizontal, children: <Widget>[
-          _buildDetails(
-              'Слонж для лица "Konjac"',  'assets/images/konjac.png',  false, context),
-          _buildDetails(
-              'Маска-скраб для лица "Lulu Pure"',  'assets/images/lulu.png',  false, context),
-          _buildDetails(
-              'Слонж для лица "Konjac"',  'assets/images/remover.png',  false, context),
+          for (var item in productlist) _buildDetails(item.name,item.ImgPath,item.isLogo,context)
+
         ]));
   }
 
