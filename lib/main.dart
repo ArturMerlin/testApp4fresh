@@ -9,6 +9,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: MyAppBar(height: 50),
+        backgroundColor: Colors.white,
       ),
       debugShowCheckedModeBanner: false,
     );
