@@ -41,6 +41,7 @@ flutter:
     - assets/images/remover.png
     - assets/images/ic_del.png
     - assets/images/ic_inc.png
+    - assets/images/gift.png
 
   fonts:
     - family: SFProText

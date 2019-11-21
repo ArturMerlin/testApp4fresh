@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:test_app_4fresh/my_text_style.dart';
 
 class Product extends StatelessWidget {
   @override
@@ -20,7 +21,7 @@ class Product extends StatelessWidget {
 
   Widget _buildDetails(String name,  String imgPath, bool isLogo, context) {
     return Padding(
-        padding: EdgeInsets.only(top: 5.0, bottom: 5.0, left: 5.0, right: 5.0),
+        padding: EdgeInsets.only(top: 5.0, bottom: 5.0, left: 15.0, right: 5.0),
         child: Container(
             width: 160.0,
             height: MediaQuery.of(context).size.height - 50.0,
@@ -66,10 +67,7 @@ class Product extends StatelessWidget {
                 width: 150.0,
                 padding: EdgeInsets.only(right: 4.0),
                 child: Text(name,
-                    style: TextStyle(
-                        color: Color(0xFF575E67),
-                        fontFamily: 'Varela',
-                        fontSize: 14.0)),
+                    style:  MyTextStyle.productDetailsStyle),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
