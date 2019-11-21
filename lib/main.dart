@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:test_app_4fresh/my_app_bar.dart';
 import 'package:test_app_4fresh/my_text_style.dart';
+import 'package:test_app_4fresh/product.dart';
 
 void main() => runApp(MyApp());
 
@@ -21,7 +22,9 @@ class MyApp extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 10.0),
+              Product()
             ],
+
           )
       ),
       debugShowCheckedModeBanner: false,
