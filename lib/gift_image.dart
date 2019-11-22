@@ -1,7 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-
+// класс для показа подарочных изображений:
+// Container с горизонтальным ListView,
+// Элементы ListView являются Container,
+// через свойство decoration задаём контейнеру изображение
 class GiftImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -18,10 +21,11 @@ class GiftImage extends StatelessWidget {
             ]));
   }
 
+//Создание контейнера с изображением
   Widget _buildImage(String imgPath, context) {
     return Padding(
         padding: EdgeInsets.only(
-            top: 20.0, bottom: 5.0, left: 15.0, right: 5.0),
+            top: 20.0, bottom: 5.0, left: 16.0, right: 5.0),
         child: Container(
           width: MediaQuery.of(context).size.width - 60.0,
           decoration: BoxDecoration(
