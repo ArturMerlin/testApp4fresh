@@ -4,14 +4,53 @@ import 'package:test_app_4fresh/my_text_style.dart';
 import 'package:test_app_4fresh/one_product.dart';
 
 // класс для отображения списка товаров
-class ProductList extends StatelessWidget {
-  List<OneProduct> productlist; // список товаров
+
+
+class ProductList extends StatefulWidget {
+
+  final productlist;
+  ProductList(int number): productlist = _buildList(number);
+  
+  @override
+  _ProductList createState() => _ProductList();
+
+  // метод, инициализирующий список товаров
+  static List<OneProduct> _buildList(int number) {
+    List<OneProduct> mylist = List<OneProduct>();
+    if (number == 1) {
+      mylist.add(OneProduct(
+          'Слонж для лица "Konjac"', 'assets/images/konjac.png', false,0));
+      mylist.add(OneProduct(
+          'Маска-скраб для лица "Lulu Pure"', 'assets/images/lulu.png', false,0));
+      mylist.add(OneProduct(
+          'Слонж для лица "Konjac"', 'assets/images/konjac.png', false,0));
+    }
+    if (number == 2) {
+      mylist.add(
+          OneProduct('Глина косметическая', 'assets/images/clay.png', true,0));
+      mylist.add(OneProduct(
+          'Пятновыводитель универсальный', 'assets/images/remover.png', true,0));
+      mylist.add(OneProduct(
+          'Пятновыводитель универсальный', 'assets/images/remover.png', true,0));
+    }
+    return mylist;
+  }
+}
+class _ProductList extends State<ProductList> {
+   // список товаров
 
   // инициализируем список товаров; в зависимости от number, будут формироваться разные списки
-  ProductList(int number) {
-    this.productlist = _buildList(number);
-  }
 
+  dynamic _incrementCounter(int index) {
+    setState(() {
+     widget.productlist[index].count++;
+    });
+  }
+  dynamic _decrementCounter(int index) {
+    setState(() {
+      if(widget.productlist[index].count !=0) widget.productlist[index].count--;
+    });
+  }
   @override
   Widget build(BuildContext context) {
     // Контейнер для горизонтального ListView
@@ -23,14 +62,16 @@ class ProductList extends StatelessWidget {
           //for (var item in productlist) // берём описание товаров из списка productlist
           // и методом _buildDetails возвращаем готовые виджеты
           //  _buildDetails(item.name, item.ImgPath, item.isLogo, context)
-        for (var i=0; i<productlist.length; i++)
-         _buildDetails(productlist[i].name, productlist[i].ImgPath, productlist[i].isLogo, context)
+        for (var i=0; i<widget.productlist.length; i++)
+         _buildDetails(widget.productlist[i],i, context)
 
         ]));
   }
 
   // метод, для создания форматированного контейнера с описанием товара
-  Widget _buildDetails(String name, String imgPath, bool isLogo, context) {
+  Widget _buildDetails(OneProduct item, int index,context) {
+    var _count = item.count;
+
     return Padding(
         padding: EdgeInsets.only(top: 5.0, bottom: 5.0, left: 5.0, right: 5.0),
         child: Container( // контейнер для всех характеристик товара
@@ -57,9 +98,9 @@ class ProductList extends StatelessWidget {
                             width: 50.0,
                             decoration: BoxDecoration(
                                 image: DecorationImage(
-                                    image: AssetImage(imgPath),
+                                    image: AssetImage(item.ImgPath),
                                     fit: BoxFit.fill))),
-                        isLogo // контейнер для логотипа
+                        item.isLogo // контейнер для логотипа
                             ? Padding(
                                 padding: EdgeInsets.only(bottom: 30.0),
                                 child: Container(
@@ -78,7 +119,7 @@ class ProductList extends StatelessWidget {
                 height: 40.0,
                 width: 150.0,
                 padding: EdgeInsets.only(top: 10.0, left: 10.0, right: 5.0),
-                child: Text(name, style: MyTextStyle.productDetailsStyle),
+                child: Text(item.name, style: MyTextStyle.productDetailsStyle),
               ),
 
               Row( //строка для кнопок удаления, добавления и количества товаров
@@ -88,37 +129,18 @@ class ProductList extends StatelessWidget {
                       icon: Image.asset('assets/images/ic_del.png'),
                       iconSize: 14,
                       color: Colors.black,
-                      onPressed: null),
-                  Text("0"), // показывает количество товара
+                      onPressed: ()=>_decrementCounter(index)),
+                  Text("$_count"), // показывает количество товара
                   IconButton( // кнопка добавления товара
                       icon: Image.asset('assets/images/ic_inc.png'),
                       iconSize: 14,
                       color: Colors.black,
-                      onPressed: null),
+                      onPressed: ()=>_incrementCounter(index)),
                 ],
               )
             ])));
   }
 
-  // метод, инициализирующий список товаров
-  List<OneProduct> _buildList(int number) {
-    List<OneProduct> mylist = List<OneProduct>();
-    if (number == 1) {
-      mylist.add(OneProduct(
-          'Слонж для лица "Konjac"', 'assets/images/konjac.png', false));
-      mylist.add(OneProduct(
-          'Маска-скраб для лица "Lulu Pure"', 'assets/images/lulu.png', false));
-      mylist.add(OneProduct(
-          'Слонж для лица "Konjac"', 'assets/images/konjac.png', false));
-    }
-    if (number == 2) {
-      mylist.add(
-          OneProduct('Глина косметическая', 'assets/images/clay.png', true));
-      mylist.add(OneProduct(
-          'Пятновыводитель универсальный', 'assets/images/remover.png', true));
-      mylist.add(OneProduct(
-          'Пятновыводитель универсальный', 'assets/images/remover.png', true));
-    }
-    return mylist;
-  }
+
+
 }
