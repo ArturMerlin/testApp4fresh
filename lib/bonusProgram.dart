@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:test_app_4fresh/my_text_style.dart';
+import 'package:test_app_4fresh/myTextStyle.dart';
 
 class BonusProgram extends StatelessWidget {
   @override

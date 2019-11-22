@@ -1,15 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:test_app_4fresh/my_text_style.dart';
-import 'package:test_app_4fresh/one_product.dart';
+import 'package:test_app_4fresh/myTextStyle.dart';
+import 'package:test_app_4fresh/oneProduct.dart';
 
 // класс для отображения списка товаров
-
 class ProductList extends StatefulWidget {
 
-  final productlist; // список товаров
+  final List<OneProduct> productlist; // список товаров
 
-  // инициализируем список товаров; в зависимости от number, будут формироваться разные списки
+  // инициализируем список товаров. В зависимости от number,
+  // будут формироваться разные списки
   ProductList(int number): productlist = _buildList(number);
   
   @override
@@ -97,7 +97,7 @@ class _ProductList extends State<ProductList> {
                             width: 55.0,
                             decoration: BoxDecoration(
                                 image: DecorationImage(
-                                    image: AssetImage(item.ImgPath),
+                                    image: AssetImage(item.imgPath),
                                     fit: BoxFit.fill))),
                         item.isLogo // контейнер для логотипа
                             ? Padding(
