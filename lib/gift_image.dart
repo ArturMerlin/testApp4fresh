@@ -27,7 +27,7 @@ class GiftImage extends StatelessWidget {
         padding: EdgeInsets.only(
               left: 8.0),
         child: Container(
-          width: 320,
+          width: MediaQuery.of(context).size.width-30,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15.0),
             boxShadow: [

@@ -34,18 +34,20 @@ class MyTextStyle {
       fontFamily: 'SFProText',
       color: Color.fromRGBO(223, 178, 141, 1.0),
       fontWeight: FontWeight.bold,
-      fontSize: 17.0);
+      fontSize: 16.0);
 
+  // стиль для текущей стоимости товаров в корзине
   static const currentPrice = TextStyle(
-      fontFamily: 'SFProText',
+      fontFamily: 'SFProDisplay',
       color: Colors.black,
       fontWeight: FontWeight.bold,
-      fontSize: 18.0);
+      fontSize: 17.0);
 
+  // стиль для общей стоимости товаров в бонусной программе
   static const commonPrice = TextStyle(
       fontFamily: 'SFProText',
       color: Color.fromRGBO(160, 164, 173, 1.0),
       fontWeight: FontWeight.normal,
-      fontSize: 13.0);
+      fontSize: 12.0);
 
 }

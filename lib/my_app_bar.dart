@@ -19,8 +19,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
       elevation: 0.0,                // тени снизу виджета не будет
       centerTitle: true,             // title располагается по середине
       leading: IconButton(           // перед title располагаем кнопку "Назад"
-        icon: Icon(Icons.arrow_back_ios),
-        iconSize: 14,
+        icon: Image.asset('assets/images/ic_back.png'),
         color: Colors.black,
         onPressed: null,
       ),

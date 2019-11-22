@@ -5,10 +5,11 @@ import 'package:test_app_4fresh/one_product.dart';
 
 // класс для отображения списка товаров
 
-
 class ProductList extends StatefulWidget {
 
-  final productlist;
+  final productlist; // список товаров
+
+  // инициализируем список товаров; в зависимости от number, будут формироваться разные списки
   ProductList(int number): productlist = _buildList(number);
   
   @override
@@ -19,7 +20,7 @@ class ProductList extends StatefulWidget {
     List<OneProduct> mylist = List<OneProduct>();
     if (number == 1) {
       mylist.add(OneProduct(
-          'Слонж для лица "Konjac"', 'assets/images/konjac.png', false,0));
+          'Слонж для лица "Konjac"', 'assets/images/konjac.png', false,1));
       mylist.add(OneProduct(
           'Маска-скраб для лица "Lulu Pure"', 'assets/images/lulu.png', false,0));
       mylist.add(OneProduct(
@@ -37,31 +38,30 @@ class ProductList extends StatefulWidget {
   }
 }
 class _ProductList extends State<ProductList> {
-   // список товаров
 
-  // инициализируем список товаров; в зависимости от number, будут формироваться разные списки
-
+  // функция увеличения количества товара
   dynamic _incrementCounter(int index) {
     setState(() {
      widget.productlist[index].count++;
     });
   }
+  // функция уменьшения количества товара
   dynamic _decrementCounter(int index) {
     setState(() {
       if(widget.productlist[index].count !=0) widget.productlist[index].count--;
     });
   }
+
   @override
   Widget build(BuildContext context) {
     // Контейнер для горизонтального ListView
     return Container(
         padding: EdgeInsets.only(left: 16.0),
-        //width: MediaQuery.of(context).size.width - 20.0,
         height: 170, // ограничиваем высоту контейнера
         child: ListView(scrollDirection: Axis.horizontal, children: <Widget>[
-          //for (var item in productlist) // берём описание товаров из списка productlist
+
+          // берём описание товаров из списка productlist
           // и методом _buildDetails возвращаем готовые виджеты
-          //  _buildDetails(item.name, item.ImgPath, item.isLogo, context)
         for (var i=0; i<widget.productlist.length; i++)
          _buildDetails(widget.productlist[i],i, context)
 
@@ -75,8 +75,7 @@ class _ProductList extends State<ProductList> {
     return Padding(
         padding: EdgeInsets.only(top: 5.0, bottom: 5.0, left: 5.0, right: 5.0),
         child: Container( // контейнер для всех характеристик товара
-            width: 150.0,
-            height: MediaQuery.of(context).size.height - 50.0,
+            width: MediaQuery.of(context).size.width/2 -20,
             decoration: BoxDecoration(  // задаём форму контейнеру
                 borderRadius: BorderRadius.circular(15.0),
                 boxShadow: [
@@ -130,7 +129,9 @@ class _ProductList extends State<ProductList> {
                       iconSize: 14,
                       color: Colors.black,
                       onPressed: ()=>_decrementCounter(index)),
+
                   Text("$_count"), // показывает количество товара
+
                   IconButton( // кнопка добавления товара
                       icon: Image.asset('assets/images/ic_inc.png'),
                       iconSize: 14,
