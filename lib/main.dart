@@ -18,21 +18,21 @@ class MyApp extends StatelessWidget {
           body: ListView(
             children: <Widget>[
               Container(
-                padding: EdgeInsets.only(top: 5.0, left: 16.0),
+                padding: EdgeInsets.only(top: 5.0, left: 16.0, bottom:16.0),
                 child: Text(
                   'Подарки по акциям',
                   style: MyTextStyle
                       .headline, //  Содержит TextStyle с заданными параметрами
                 ),
               ),
-              SizedBox(height: 10.0),
+
 
 
               ProductList(1),
 
               Padding(
                 padding: EdgeInsets.only(
-                    top: 20.0, bottom: 5.0, left: 16.0, right: 5.0),
+                    top: 20.0, left: 16.0, right: 16.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
@@ -56,7 +56,7 @@ class MyApp extends StatelessWidget {
               ),
               GiftImage(),
               Container(
-                padding: EdgeInsets.only(top: 15.0, left: 16.0),
+                padding: EdgeInsets.only(top: 30.0, left: 16.0),
                 child: Text(
                   'За сумму заказа',
                   style: MyTextStyle
@@ -66,7 +66,7 @@ class MyApp extends StatelessWidget {
 
               Wrap(alignment: WrapAlignment.start, children: <Widget>[
                 Padding(
-                  padding: EdgeInsets.only(top: 15.0, left: 16.0, right: 5.0),
+                  padding: EdgeInsets.only(top: 16.0, left: 16.0, right: 16.0),
                   child: Text(
                       "Чем больше заказ, тем БОЛЬШЕ подарков вы можете выбрать! ",
                     style: MyTextStyle.usualTextStyle),
@@ -75,7 +75,9 @@ class MyApp extends StatelessWidget {
 
               BonusProgram(),
 
-              ProductList(2)
+              ProductList(2),
+
+              SizedBox(height: 58.0,)
             ],
           )),
       debugShowCheckedModeBanner: false,

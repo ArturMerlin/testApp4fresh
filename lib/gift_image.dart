@@ -10,8 +10,8 @@ class GiftImage extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Container(
-       // padding: EdgeInsets.only(right: 15.0),
-        height: 140,
+       padding: EdgeInsets.only(left:8.0,top: 13.0),
+        height: 125,
         child:
         ListView(
             scrollDirection: Axis.horizontal,
@@ -25,9 +25,9 @@ class GiftImage extends StatelessWidget {
   Widget _buildImage(String imgPath, context) {
     return Padding(
         padding: EdgeInsets.only(
-            top: 20.0, bottom: 5.0, left: 16.0, right: 5.0),
+              left: 8.0),
         child: Container(
-          width: MediaQuery.of(context).size.width - 60.0,
+          width: 320,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15.0),
             boxShadow: [

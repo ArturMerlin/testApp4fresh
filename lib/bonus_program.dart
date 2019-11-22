@@ -6,8 +6,10 @@ class BonusProgram extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: 270,
+
       padding: EdgeInsets.only(
-          top: 20.0, bottom: 15.0, left: 16.0, right: 5.0),
+          top: 18.0,  bottom:18.0,left: 18.0, right: 80.0),
       child: Row(
         children: <Widget>[
           Container(
@@ -18,11 +20,21 @@ class BonusProgram extends StatelessWidget {
                       image: AssetImage('assets/images/bonus.png'),
                       fit: BoxFit.fill))),
           Padding(
-            padding: EdgeInsets.only(left: 30.0),
+            padding: EdgeInsets.only(left: 18.0),
             child:Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Text("1429 / 3000 "),
+                Text.rich(
+                  TextSpan(
+                    text: '1429',
+                    style: MyTextStyle.currentPrice, // default text style
+                    children: <TextSpan>[
+                      TextSpan(
+                          text: ' / 3000',
+                          style: MyTextStyle.commonPrice),
+                    ],
+                  ),
+                ),
                 Text("До бронзового уровня ", style: MyTextStyle.bronzeTextStyle),
               ],
             )

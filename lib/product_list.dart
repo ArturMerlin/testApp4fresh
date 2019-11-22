@@ -89,13 +89,13 @@ class _ProductList extends State<ProductList> {
 
             child: Column(children: [
               Padding(
-                  padding: EdgeInsets.only(top: 15.0, left: 5.0, right: 15.0),
+                  padding: EdgeInsets.only(top: 16.0, left: 16.0, right: 16.0),
                   child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Container( // контейнер для изображения товара
-                            height: 50.0,
-                            width: 50.0,
+                            height: 55.0,
+                            width: 55.0,
                             decoration: BoxDecoration(
                                 image: DecorationImage(
                                     image: AssetImage(item.ImgPath),
@@ -118,7 +118,7 @@ class _ProductList extends State<ProductList> {
               Container(  // контейнер для наименования товара
                 height: 40.0,
                 width: 150.0,
-                padding: EdgeInsets.only(top: 10.0, left: 10.0, right: 5.0),
+                padding: EdgeInsets.only(top: 8.0, left: 10.0, right: 5.0),
                 child: Text(item.name, style: MyTextStyle.productDetailsStyle),
               ),
 
